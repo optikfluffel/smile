@@ -24,3 +24,4 @@ gem "zurb-foundation", ">= 3.1.1", :group => :assets
 gem "devise", ">= 2.1.2"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "brakeman", ">= 1.8.2", :group => :development
+gem "autotest-rails", ">= 4.1.2", :group => :test
