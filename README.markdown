@@ -29,3 +29,7 @@ DO WHATEVER THE FUCK YOU WANT, PUBLIC LICENSE
 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
 0. You just DO WHATEVER THE FUCK YOU WANT.
+
+## Edorsement
+
+If you like it feel free to endorse me: [![](http://api.coderwall.com/optikfluffel/endorsecount.png)](http://coderwall.com/optikfluffel)
