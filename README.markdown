@@ -21,7 +21,7 @@ Setup a Postgres database using the user *smile* and the password *12345* or cha
 * Front-end Framework: Zurb Foundation
 * Authentication: Devise
 
-*My way* to develop is to start ```unicorn``` (<- yes you can simply type it in your terminal) as the webserver and run ```autotest``` (<- same thing again) in a seperate window to see if I brake something instantly. Now you can open up [localhost:8080](http://localhost:8080) to watch the site, have an editor window next to it to change stuff and a little terminal window somewhere around to see if you brake existing stuff.
+*My way* to develop is to start ```unicorn``` (<- yes you can simply type it in your terminal) as the webserver and run ```AUTOFEATURE=true autotest``` (<- same thing again) in a seperate window to see if I brake something instantly. Now you can open up [localhost:8080](http://localhost:8080) to watch the site, have an editor window next to it to change stuff and a little terminal window somewhere around to see if you brake existing stuff.
 
 ## License
 
