@@ -36,5 +36,5 @@ Smile::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Configure Action Mailer
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'localhost:8080' }
 end

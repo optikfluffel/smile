@@ -36,6 +36,8 @@ Smile::Application.configure do
   config.assets.debug = true
 
   # Configure Action Mailer
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'localhost:8080' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :sendmail #:smtp
 
 end
