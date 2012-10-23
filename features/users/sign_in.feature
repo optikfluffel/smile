@@ -23,18 +23,16 @@ Feature: Sign in
       When I return to the site
       Then I should be signed in
 
-    Scenario: User enters wrong email
+    Scenario: User enters wrong username
       Given I exist as a user
       And I am not logged in
-      When I sign in with a wrong email
+      When I sign in with a wrong username
       Then I see an invalid login message
       And I should be signed out
-      
+
     Scenario: User enters wrong password
       Given I exist as a user
       And I am not logged in
       When I sign in with a wrong password
       Then I see an invalid login message
       And I should be signed out
-
-      

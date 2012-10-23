@@ -1,12 +1,12 @@
 ### UTILITY METHODS ###
 
 def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+  @visitor ||= { :username => "Testy", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
 end
 
 def find_user
-  @user ||= User.where(:email => @visitor[:email]).first
+  @user ||= User.where(:username => @visitor[:username])
 end
 
 def create_unconfirmed_user
@@ -19,18 +19,18 @@ end
 def create_user
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user = FactoryGirl.create(:user, @visitor)
 end
 
 def delete_user
-  @user ||= User.where(:email => @visitor[:email]).first
+  @user ||= User.where(:username => @visitor[:username]).first
   @user.destroy unless @user.nil?
 end
 
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "Name", :with => @visitor[:name]
+  fill_in "Username", :with => @visitor[:username]
   fill_in "Email", :with => @visitor[:email]
   fill_in "Password", :with => @visitor[:password]
   fill_in "Password confirmation", :with => @visitor[:password_confirmation]
@@ -40,7 +40,7 @@ end
 
 def sign_in
   visit '/users/sign_in'
-  fill_in "Email", :with => @visitor[:email]
+  fill_in "Username", :with => @visitor[:username]
   fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
 end
@@ -83,9 +83,9 @@ When /^I sign up with valid user data$/ do
   sign_up
 end
 
-When /^I sign up with an invalid email$/ do
+When /^I sign up with an invalid username$/ do
   create_visitor
-  @visitor = @visitor.merge(:email => "notanemail")
+  @visitor = @visitor.merge(:username => "us")
   sign_up
 end
 
@@ -111,8 +111,8 @@ When /^I return to the site$/ do
   visit '/'
 end
 
-When /^I sign in with a wrong email$/ do
-  @visitor = @visitor.merge(:email => "wrong@example.com")
+When /^I sign in with a wrong username$/ do
+  @visitor = @visitor.merge(:username => "wrongusername")
   sign_in
 end
 
@@ -123,13 +123,13 @@ end
 
 When /^I edit my account details$/ do
   click_link "Edit account"
-  fill_in "Name", :with => "newname"
+  fill_in "Username", :with => "newname"
   fill_in "Current password", :with => @visitor[:password]
   click_button "Update"
 end
 
 When /^I look at the list of users$/ do
-  visit '/'
+  visit '/users/'
 end
 
 ### THEN ###
@@ -157,8 +157,8 @@ Then /^I should see a successful sign up message$/ do
   page.should have_content "A message with a confirmation link has been sent to your email address."
 end
 
-Then /^I should see an invalid email message$/ do
-  page.should have_content "Email is invalid"
+Then /^I should see an invalid username message$/ do
+  page.should have_content "Username is too short (minimum is 3 characters)"
 end
 
 Then /^I should see a missing password message$/ do
@@ -185,7 +185,7 @@ Then /^I should see an account edited message$/ do
   page.should have_content "You updated your account successfully."
 end
 
-Then /^I should see my name$/ do
+Then /^I should not see my username$/ do
   create_user
-  page.should have_content @user[:name]
+  page.should_not have_content @user[:username]
 end
