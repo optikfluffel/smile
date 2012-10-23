@@ -1,7 +1,7 @@
 ### UTILITY METHODS ###
 
 def create_visitor
-  @visitor ||= { :username => "Testy", :email => "example@example.com",
+  @visitor ||= { :username => "testy", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
 end
 
@@ -130,6 +130,11 @@ end
 
 When /^I look at the list of users$/ do
   visit '/users/'
+end
+
+When /^I look at my profile page$/ do
+  visit '/'
+  click_link @visitor[:username]
 end
 
 ### THEN ###
