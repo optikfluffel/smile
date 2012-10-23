@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
   # Validations
-  validates_presence_of :username, :email, :on => :create
+  # Username
+  validates_presence_of :username, :on => :create
+  validates_uniqueness_of :username
   validates_length_of :username, :minimum => 3
+
+  # Email
+  validates_presence_of :email, :on => :create
+  validates_uniqueness_of :email
+
 end
