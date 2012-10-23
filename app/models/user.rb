@@ -1,4 +1,15 @@
 class User < ActiveRecord::Base
+  # Associations
+  # Friendship
+  has_many :followings
+  has_many :followed_users, :through => :followings, :source => :follower
+  has_many :reverse_followings, :class_name => "Following", :foreign_key => "follower_id"
+  has_many :followers, :through => :reverse_followings, :source => :user
+  # Smiles
+  # TODO: Add associations for smiles
+  # Likes
+  # TODO: Add associations for likes
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
