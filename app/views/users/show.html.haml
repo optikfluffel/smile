@@ -7,10 +7,10 @@
 %h3 Follows
 
 %ul
-  - for user in @user.followed_users
+  - for following in @user.followings
     %li
-      = h user.username
-      (#{link_to "unfollow", followings_path, :method => :delete})
+      = h following.follower.username
+      = link_to "unfollow", following_path(:id => following.id), :method => :delete
 
 %p= link_to "Find Friends", users_path
 
