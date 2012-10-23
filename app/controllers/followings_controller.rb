@@ -7,10 +7,10 @@ class FollowingsController < ApplicationController
 
     if @following.save
       flash[:notice] = "You now follow " + username + "."
-      redirect_to root_url
+      redirect_to current_user
     else
       flash[:error] = "Unable to follow " + username + "."
-      redirect_to root_url
+      redirect_to current_user
     end
 
   end
@@ -21,7 +21,12 @@ class FollowingsController < ApplicationController
     # Remember the username for nicer output
     username = User.find(@following.follower_id).username
 
-    @following.destroy
-    flash[:notice] = "You unfollowed " + username + "."
+    if @following.destroy
+      flash[:notice] = "You unfollowed " + username + "."
+      redirect_to current_user
+    else
+      flash[:error] = "Unable to unfollow " + username + "."
+      redirect_to root_url
+    end
   end
 end
