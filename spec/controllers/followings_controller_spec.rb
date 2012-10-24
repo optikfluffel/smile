@@ -3,10 +3,10 @@ require 'spec_helper'
 describe FollowingsController do
 
   before (:each) do
-    @following = FactoryGirl.create(:following)
     @user = FactoryGirl.create(:user)
     @other_user = FactoryGirl.create(:other_user)
     sign_in @user
+    @following = FactoryGirl.create(:following)
   end
 
   describe "destroy" do
