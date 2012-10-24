@@ -1,4 +1,14 @@
-%h3 Home
+%h2 Hi.
 
 - if user_signed_in?
-  = link_to 'New Post', new_post_path
+  %h3
+    = link_to 'New Post', new_post_path
+- else
+  %h3
+    You're new here? Just
+    = link_to 'sign up', new_user_registration_path
+    !
+  %p
+    If you've been here before please
+    = link_to 'login', new_user_session_path
+    to see what's going on.
