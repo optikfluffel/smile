@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %h3 User
 %p
   User: #{@user.username}
@@ -18,3 +19,34 @@
 %ul
   - for user in @user.followers
     %li= h user.username
+=======
+.four.columns
+  .row
+    %h2 #{@user.username}
+    %p
+      Email: #{@user.email}
+
+  .row
+    %h2 Follows
+    %ul
+      - for following in @user.followings
+        %li
+          = h following.follower.username
+          = link_to "unfollow", following_path(:id => following.id), :method => :delete
+
+    %h2 Follower
+    %ul
+      - for user in @user.followers
+        %li= h user.username
+
+.eight.columns
+  %h2 Posts
+  -if @user.posts
+    %ul.unstyled.posts
+      - for post in @user.posts.order('created_at DESC')
+        %li
+          %article
+            %h3= link_to post.title, post
+            = image_tag post.image_url(:medium), :class => "styled" if post.image?
+            %p= post.description if post.description?
+>>>>>>> Stashed changes

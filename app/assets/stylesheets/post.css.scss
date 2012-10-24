@@ -1,0 +1,14 @@
+@import "options";
+
+article {
+
+}
+
+ul.posts {
+  li {
+    border-bottom: 1px solid $grey;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+}

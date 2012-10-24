@@ -4,7 +4,15 @@
       = link_to 'Home', root_url
     - if user_signed_in?
       %li
+<<<<<<< Updated upstream
         = link_to current_user.username, current_user
+=======
+        = link_to 'New post', new_post_path
+      %li
+        = link_to "Find Friends", users_path
+      %li
+        = link_to 'View profile', current_user
+>>>>>>> Stashed changes
       %li
         = link_to 'Edit account', edit_user_registration_path
       %li

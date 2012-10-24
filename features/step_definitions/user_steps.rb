@@ -134,7 +134,7 @@ end
 
 When /^I look at my profile page$/ do
   visit '/'
-  click_link @visitor[:username]
+  click_link 'View profile'
 end
 
 ### THEN ###
