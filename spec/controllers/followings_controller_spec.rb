@@ -14,7 +14,7 @@ describe FollowingsController do
   describe "destroy" do
     it "should be successful" do
       delete :destroy, :id => @following.id
-      response.should redirect_to('/users/1')
+      response.should redirect_to('/users/' + @user.id.to_s)
     end
   end
 
