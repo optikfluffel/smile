@@ -1,20 +1,25 @@
-%h3 User
+%h2 User
 %p
   User: #{@user.username}
 %p
   Email: #{@user.email}
 
-%h3 Follows
-
+%h2 Follows
 %ul
   - for following in @user.followings
     %li
       = h following.follower.username
       = link_to "unfollow", following_path(:id => following.id), :method => :delete
 
-%p= link_to "Find Friends", users_path
+%h2= link_to "Find Friends", users_path
 
-%h3 Follower
+%h2 Follower
 %ul
   - for user in @user.followers
     %li= h user.username
+
+%h2 Posts
+- for post in @user.posts
+  %h3= link_to post.title, post
+  = image_tag post.image_url(:small) if post.image?
+  %p= post.description if post.description?

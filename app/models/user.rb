@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :followed_users, :through => :followings, :source => :follower
   has_many :reverse_followings, :class_name => "Following", :foreign_key => "follower_id"
   has_many :followers, :through => :reverse_followings, :source => :user
-  # Smiles
-  # TODO: Add associations for smiles
+  # Posts
+  has_many :posts, :dependent => :destroy
   # Likes
   # TODO: Add associations for likes
 

@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%h3= @post.title
+
+= image_tag @post.image_url(:medium) if @post.image?
+
+%p= @post.description
+
+= link_to 'Edit', edit_post_path(@post)
+
+= link_to 'Back', current_user

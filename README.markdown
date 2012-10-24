@@ -10,6 +10,8 @@ It's a simple Social Network for sending smiles to your friends and it should sh
 
 Simply use ```bundle install``` to add all dependencies to your Gemset.
 
+Now make sure you have [imagemagick](http://www.imagemagick.org) installed (*on a Mac I suggest using [homebrew](http://mxcl.github.com/homebrew) with ```brew install imagemagick```*) and you're ready to go.
+
 ## Database
 
 Setup a Postgres database using the user *smile* and the password *12345* or change the ```config/database.yml``` to your needs.
