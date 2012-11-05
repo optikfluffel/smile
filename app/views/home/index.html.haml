@@ -1,9 +1,29 @@
-%h2 Hi.
-
 - if user_signed_in?
-  %h3
-    = link_to 'New Post', new_post_path
+  .six.columns
+    %h2.welcome
+      Hi
+      = current_user.username
+      \.
+  .six.columns
+    = link_to 'Add a new post', new_post_path, :class => "button radius"
+  .twelve.columns
+    %h2 Timeline
+    - if current_user.followings.length >= 1
+      %ul.unstyled.posts
+        - for post in current_user.posts.order('created_at DESC')
+          %li
+            %article
+              %h3= link_to post.title, post
+              = image_tag post.image_url(:large), :class => "styled" if post.image?
+              %p= post.description if post.description?
+    - else
+      %p
+        You have no followers yet. Do you want to
+        = link_to 'find some', users_path
+        ?
+
 - else
+  %h2 Hi.
   %h3
     You're new here? Just
     = link_to 'sign up', new_user_registration_path
