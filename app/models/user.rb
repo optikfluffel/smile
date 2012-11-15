@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   # Timeline
   def timeline
-    Post.find(:all, :conditions => ["user_id in (?)", followed_users.map(&:id)], :order => "created_at desc")
+    Post.find(:all, :conditions => ["user_id in (?)", followed_users.map(&:id).push(self.id)], :order => "created_at desc")
   end
 
 end
