@@ -1,24 +1,29 @@
 .four.columns
   .row
-    %h2 #{@user.username}
+    %h2
+      = gravatar_image_tag(@user.email, :gravatar => { :secure => true, :size => 28 })
+      = h @user.username
     %p
       Email: #{@user.email}
 
   - if @user.followings.length >= 1
     .row
       %h2 Follows
-      %ul
+      %ul.unstyled.follow
         - for following in @user.followings
           %li
+            = gravatar_image_tag(following.follower.email, :gravatar => { :secure => true, :size => 23 })
             = h following.follower.username
-            = link_to "unfollow", following_path(:id => following.id), :method => :delete
+            = link_to "unfollow", following_path(:id => following.id), :method => :delete, :class => "button tiny radius"
 
   - if @user.followers.length >= 1
     .row
       %h2 Follower
-      %ul
+      %ul.unstyled.follow
         - for user in @user.followers
-          %li= h user.username
+          %li
+            = gravatar_image_tag(user.email, :gravatar => { :secure => true, :size => 16 })
+            = h user.username
 
 -if @user.posts.length >= 1
   .eight.columns

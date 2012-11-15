@@ -28,3 +28,4 @@ gem "autotest-rails", ">= 4.1.2", :group => :test
 gem "carrierwave", ">= 0.7.0"
 gem "rmagick", ">= 2.13.1"
 gem "turbolinks", ">= 0.5.1"
+gem "gravatar_image_tag", ">= 1.1.3"

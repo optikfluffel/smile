@@ -1,3 +1,17 @@
-// Place all the styles related to the following controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "options";
+
+ul.follow li {
+  padding: 5px;
+  font-size: 1.2em;
+  a, img {
+    vertical-align: top;
+  }
+  a {
+    float: right;
+  }
+}
+
+ul.follow li:hover{
+  background: $yellow;
+  box-shadow:1px 1px 5px $bright;
+}
