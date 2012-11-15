@@ -1,12 +1,11 @@
+[![Build Status](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/optikfluffel/smile)
+
 # Smile
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem provided by the [RailsApps Project](http://railsapps.github.com).
 
 It's a simple Social Network for sending smiles to your friends and it should show what I can do.
-
-## Does it build?
-
-Build Status from [travis-ci.org](https://travis-ci.org): [![Build Status](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)
 
 ## Setup the dependencies
 
