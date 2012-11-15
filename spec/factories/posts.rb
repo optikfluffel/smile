@@ -5,4 +5,9 @@ FactoryGirl.define do
     title "MyString"
     description "MyText"
   end
+
+  factory :other_post, :class => Post do
+    title "MyOtherString"
+    description "MyOtherText"
+  end
 end

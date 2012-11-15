@@ -1,13 +1,12 @@
 ### UTILITY METHODS ###
 def create_another_visitor
-  @another_visitor ||= { :username => "otheruser", :email => "other@example.com",
-    :password => "justdoit", :password_confirmation => "justdoit" }
+  @other_visitor ||= FactoryGirl.attributes_for(:other_user)
 end
 
 def create_another_user
   create_another_visitor
   delete_another_user
-  @another_user = FactoryGirl.create(:user, @another_visitor)
+  @other_user = FactoryGirl.create(:other_user)
 end
 
 def follow_another_user
@@ -16,8 +15,8 @@ def follow_another_user
 end
 
 def delete_another_user
-  @another_user ||= User.where(:username => @another_visitor[:username]).first
-  @another_user.destroy unless @another_user.nil?
+  @other_user ||= User.where(:username => @other_visitor[:username]).first
+  @other_user.destroy unless @other_user.nil?
 end
 
 ### GIVEN ###
@@ -42,9 +41,9 @@ end
 
 ### THEN ###
 Then /^I should see the other username$/ do
-  page.should have_content @another_visitor[:username]
+  page.should have_content @other_visitor[:username]
 end
 
 Then /^I should not see the other username$/ do
-  page.should_not have_content @another_visitor[:username]
+  page.should_not have_content @other_visitor[:username]
 end

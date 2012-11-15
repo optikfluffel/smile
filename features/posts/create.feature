@@ -7,3 +7,4 @@ Feature: Create a new post
       Given I am logged in
       When I create a new post
       Then I should see a successfully created message
+        And I should see the post

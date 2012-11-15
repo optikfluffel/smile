@@ -48,9 +48,9 @@ describe PostsController do
         assigns(:post).should be_persisted
       end
 
-      it "redirects to the profile page" do
+      it "redirects to the homepage" do
         post :create, {:post => @valid_attributes}
-        response.should redirect_to(@user)
+        response.should redirect_to(root_path)
       end
     end
 

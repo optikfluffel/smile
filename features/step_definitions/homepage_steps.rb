@@ -1,6 +1,5 @@
 ### UTILITY METHODS ###
 
-
 ### GIVEN ###
 
 
@@ -18,4 +17,10 @@ end
 Then /^I should see a button to create a new post$/ do
   page.should have_content "Add a new post"
   page.should have_selector "a.button.radius"
+end
+
+Then /^I should see the post a another user$/ do
+  pending
+  #page.should have_content "MyOtherString"
+  #page.should have_content "MyOtherText"
 end
