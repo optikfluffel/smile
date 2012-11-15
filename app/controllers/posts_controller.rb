@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = 'Post was successfully created.'
-      redirect_to current_user
+      redirect_to root_path
     else
       flash[:error] = 'Unable to create post.'
       render action: 'new'
