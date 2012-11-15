@@ -8,19 +8,18 @@
     = link_to 'Add a new post', new_post_path, :class => "button radius"
   .twelve.columns
     %h2 Timeline
-    - if current_user.followed_users.length >= 1
-      %ul.unstyled.posts
-        - for post in @timeline
-          %li
-            %article
-              %h3= link_to post.title, post
-              = image_tag post.image_url(:large), :class => "styled" if post.image?
-              %p= post.description if post.description?
-    - else
+    - if current_user.followed_users.length < 1
       %p
         You don't follow anyone yet. Do you want to
         = link_to 'find some people', users_path
         ?
+    %ul.unstyled.posts
+      - for post in @timeline
+        %li
+          %article
+            %h3= link_to post.title, post
+            = image_tag post.image_url(:large), :class => "styled" if post.image?
+            %p= post.description if post.description?
 
 - else
   %h2 Hi.
