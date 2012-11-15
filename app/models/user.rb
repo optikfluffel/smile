@@ -29,4 +29,9 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :on => :create
   validates_uniqueness_of :email
 
+  # Timeline
+  def timeline
+    Post.find(:all, :conditions => ["user_id in (?)", followed_users.map(&:id)], :order => "created_at desc")
+  end
+
 end

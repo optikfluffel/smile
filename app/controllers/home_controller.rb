@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
-    # TODO: Add timeline
+    if not current_user.blank?
+      @timeline = current_user.timeline
+    end
   end
 end

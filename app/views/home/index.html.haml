@@ -8,9 +8,9 @@
     = link_to 'Add a new post', new_post_path, :class => "button radius"
   .twelve.columns
     %h2 Timeline
-    - if current_user.followings.length >= 1
+    - if current_user.followed_users.length >= 1
       %ul.unstyled.posts
-        - for post in current_user.posts.order('created_at DESC')
+        - for post in @timeline
           %li
             %article
               %h3= link_to post.title, post
