@@ -4,3 +4,5 @@ rvm:
   - jruby-19mode # JRuby in 1.9 mode
   - rbx-19mode
 env: DB=postgresql
+before_script:
+  - psql -c 'create database smile_test;' -U postgres
