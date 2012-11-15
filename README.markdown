@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)
+[![Build Status](https://secure.travis-ci.org/optikfluffel/smile.png?branch=master)](https://travis-ci.org/optikfluffel/smile)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/optikfluffel/smile)
 
 # Smile
