@@ -36,6 +36,8 @@ When /^I follow the other user$/ do
 end
 
 When /^I unfollow the other user$/ do
+  visit '/'
+  click_link 'View profile'
   click_link 'unfollow'
 end
 
