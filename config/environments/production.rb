@@ -66,8 +66,15 @@ Smile::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Configure Action Mailer
-  config.action_mailer.default_url_options = { :host => 'smile-and-be-nice.herokuapp.com' }
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :sendmail #:smtp
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'], 
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'yourapp.heroku.com',
+    :authentication => :plain,
+  }
+
+  config.action_mailer.delivery_method = :smtp
 
 end
