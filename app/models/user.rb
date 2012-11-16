@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # Associations
+  #################################### Associations
   # Friendship
   has_many :followings
   has_many :followed_users, :through => :followings, :source => :follower
@@ -10,16 +10,17 @@ class User < ActiveRecord::Base
   # Likes
   # TODO: Add associations for likes
 
+  #################################### Devise configuration
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
+  #################################### Accessible attributes
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
-  # Validations
+  #################################### Validations
   # Username
   validates_presence_of :username, :on => :create
   validates_uniqueness_of :username
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :on => :create
   validates_uniqueness_of :email
 
-  # Timeline
+  #################################### Timeline
   def timeline
     Post.find(:all, :conditions => ["user_id in (?)", followed_users.map(&:id).push(self.id)], :order => "created_at desc")
   end
