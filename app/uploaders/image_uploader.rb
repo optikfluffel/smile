@@ -8,7 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  Rails.env.production? ? (storage :fog) : (storage :file)
 
   # Process files as they are uploaded:
   process :resize_to_limit => [1200, 1200]

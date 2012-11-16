@@ -26,6 +26,7 @@ gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "brakeman", ">= 1.8.2", :group => :development
 gem "autotest-rails", ">= 4.1.2", :group => :test
 gem "carrierwave", ">= 0.7.0"
+gem "fog", ">= 1.7.0"
 gem "rmagick", ">= 2.13.1"
 gem "turbolinks", ">= 0.5.1"
 gem "gravatar_image_tag", ">= 1.1.3"
