@@ -30,3 +30,5 @@ gem "fog", ">= 1.7.0"
 gem "rmagick", ">= 2.13.1"
 gem "turbolinks", ">= 0.5.2", :git => "git://github.com/rails/turbolinks.git"
 gem "gravatar_image_tag", ">= 1.1.3"
+gem "better_errors", :group => :development
+gem "binding_of_caller", :group => :development
