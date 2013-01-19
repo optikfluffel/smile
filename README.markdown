@@ -19,6 +19,10 @@ Now make sure you have [imagemagick](http://www.imagemagick.org) installed (*on 
 
 Setup a Postgres database using the user *smile* and the password *12345* or change the ```config/database.yml``` to your needs.
 
+## Add secret token
+
+Copy or rename `config/initializers/secret_token_example.rb` to `config/initializers/secret_token.rb` __and enter your secret and random token at line 7__.
+
 ## Development
 
 * Template Engine: Haml
