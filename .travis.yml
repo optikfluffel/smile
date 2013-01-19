@@ -3,10 +3,9 @@ rvm:
   - 1.9.3
 env:
   - DB=postgresql
-install:
-  - "cp config/initializers/secret_token_example.rb config/initializers/secret_token.rb"
 before_script:
   - psql -c 'create database smile_test;' -U postgres
+  - cp config/initializers/secret_token_example.rb config/initializers/secret_token.rb
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
