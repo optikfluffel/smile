@@ -1,7 +1,10 @@
 language: ruby
 rvm:
   - 1.9.3
-env: DB=postgresql
+env:
+  - DB=postgresql
+install:
+  - "cp config/initializers/secret_token_example.rb config/initializers/secret_token.rb"
 before_script:
   - psql -c 'create database smile_test;' -U postgres
 script:
