@@ -1,6 +1,5 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
+
   factory :user do
     username 'user'
     email 'user@example.com'
@@ -18,4 +17,5 @@ FactoryGirl.define do
     # required if the Devise Confirmable module is used
     confirmed_at Time.now
   end
+
 end
