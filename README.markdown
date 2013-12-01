@@ -30,7 +30,7 @@ Copy or rename `config/initializers/secret_token_example.rb` to `config/initiali
 * Front-end Framework: Zurb Foundation
 * Authentication: Devise
 
-*My way* to develop is to start ```unicorn``` (<- yes you can simply type it in your terminal) as the webserver and run ```AUTOFEATURE=true autotest``` (<- same thing again) in a seperate window to see if I brake something instantly. Now you can open up [localhost:8080](http://localhost:8080) to watch the site, have an editor window next to it to change stuff and a little terminal window somewhere around to see if you brake existing stuff.
+*My way* to develop is to start ```unicorn``` (<- yes you can simply type it in your terminal) as the webserver and run ```AUTOFEATURE=true autotest``` (<- same thing again) in a seperate window to see if I break something instantly. Now you can open up [localhost:8080](http://localhost:8080) to watch the site, have an editor window next to it to change stuff and a little terminal window somewhere around to see if you brake existing stuff.
 
 ## License
 
